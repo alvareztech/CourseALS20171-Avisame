@@ -50,22 +50,8 @@ public class GeofenceTransicionService extends IntentService {
 
         if (tipoTransicion == Geofence.GEOFENCE_TRANSITION_ENTER || tipoTransicion == Geofence.GEOFENCE_TRANSITION_EXIT) {
 
-            // Lista de Geofences que sucedieron
-            List<Geofence> triggeringGeofences = geofencingEvent.getTriggeringGeofences();
+            // TODO: Paso 4
 
-            // Obtenemos solo los ids de los Geofences
-            ArrayList triggeringGeofencesIdsList = new ArrayList();
-            for (Geofence geofence : triggeringGeofences) {
-                triggeringGeofencesIdsList.add(geofence.getRequestId());
-            }
-            String idsGeofencesString = TextUtils.join(", ", triggeringGeofencesIdsList);
-
-            // Armamos el mensaje que se mostrará
-            String geofenceTransitionDetails = obtenerNombreTransicion(tipoTransicion) + " a " + idsGeofencesString;
-
-            enviarNotificacion(geofenceTransitionDetails);
-
-            Log.i("MIAPP", geofenceTransitionDetails);
         } else {
             Log.e("MIAPP", "Sucedió una transición pero de diferente tipo: " + tipoTransicion);
         }

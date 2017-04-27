@@ -145,14 +145,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         geofencesLista = new ArrayList<Geofence>();
         for (Lugar lugar : lugares) {
 
-            Geofence geofence = new Geofence.Builder()
-                    .setRequestId(lugar.getId())
-                    .setCircularRegion(lugar.getLatitud(), lugar.getLongitud(), 200) // radio en metros
-                    .setExpirationDuration(12 * 60 * 60 * 1000) // en horas
-                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER | Geofence.GEOFENCE_TRANSITION_EXIT)
-                    .build();
+            // TODO: Paso 1
 
-            geofencesLista.add(geofence);
         }
     }
 
@@ -169,11 +163,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             return;
         }
 
-        LocationServices.GeofencingApi.addGeofences(googleApiClient, obtenerSolicitudGeofencing(), obtenterPendingIntent()).setResultCallback(this);
+        // TODO: Paso 2
     }
 
     public void eliminar(View view) {
-        LocationServices.GeofencingApi.removeGeofences(googleApiClient, obtenterPendingIntent()).setResultCallback(this);
+        // TODO: Paso 3
     }
 
 
